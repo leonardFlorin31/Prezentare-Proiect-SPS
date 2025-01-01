@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor</title>
+
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/editor.css">
+</head>
+<body>
+
+    <div class="banner">
+        <input type="file" accept="image/*" id="banner-upload" hidden>
+        <label for="banner-upload" class="banner-upload-button">
+            <img src="images/upload.jpg" alt="upload banner"></label>
+    </div>
+    
+    <div class="blog">
+        <textarea type="text" class="title" placeholder="Titlu blog"></textarea>
+        <textarea type="text" class="article" placeholder="Incepeti articolul aici"></textarea>
+    </div>
+
+    <div class="blog-options">
+        <button class="button dark publish">posteaza</button>
+        <input type="file" accept="image/*" id="image-upload" hidden>
+        <label for="image-upload" class="button grey upload">Incarca imagine</label>
+    </div>
+
+    <script src="js/editor.js"></script>
+
+</body>
+</html>
