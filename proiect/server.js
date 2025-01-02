@@ -27,8 +27,8 @@ app.post('/upload', (req,res)=>{
     //nume imagine
     let imagename = date.getDate() + date.getTime() + file.name;
 
-    //locatie imagine
-    let path = 'main/images/' + imagename;
+    //locatie upload imagine
+    let path = 'main/uploads/' + imagename;
 
     //creare upload
     file.mv(path, (err, result) => {
@@ -37,7 +37,7 @@ app.post('/upload', (req,res)=>{
             throw err;
         }else {
             //raspuns cu locatia imaginii
-            res.json(`images/${imagename}`);
+            res.json(`uploads/${imagename}`);
         }
     })
 })
