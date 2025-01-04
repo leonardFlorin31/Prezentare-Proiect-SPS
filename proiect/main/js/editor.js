@@ -1,3 +1,6 @@
+import { db } from './firebase.js';
+import { collection, doc, setDoc } from 'https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js';
+
 const blogTitleField = document.querySelector('.title');
 const articleField = document.querySelector('.article');
 
@@ -53,32 +56,37 @@ const addImage = (imagepath, alt) => {
 let months = ["ian", "feb", "mar", "apr", "mai", "iun", "iul", "aug", "sep", "oct", "noi", "dec"];
 
 publishButton.addEventListener('click', () => {
-    if(articleField.value.length && blogTitleField.value.length)
-    {
-        //generare id
+    if (articleField.value.length && blogTitleField.value.length) {
+        // Generare id unic
         let letters = 'abcdefghijklmnopqrstuvwxyz';
-        blogTitle = blogTitleField.value.split(" ").join("-");
-        id = '';
-        for(let i=0; i<4; i++)
-        {
-            id += letters[Math.floor(Math.random()* letters.length)];
+        let blogTitle = blogTitleField.value.split(" ").join("-");
+        let id = '';
+        for (let i = 0; i < 4; i++) {
+            id += letters[Math.floor(Math.random() * letters.length)];
         }
 
         let docName = `${blogTitle}-${id}`;
-        let date = new Date(); //data de publicare
+        let date = new Date(); // Data de publicare
 
-        db.collection("blogs").doc(docName).set({
+        // Accesam colectia "blogs" și adaugam documentul
+        const blogsCollection = collection(db, "blogs");
+        const newDocRef = doc(blogsCollection, docName);  // Creăm o referință către documentul nostru
+        
+        // Setam datele documentului
+        setDoc(newDocRef, {
             title: blogTitleField.value,
             article: articleField.value,
             bannerImage: bannerPath,
-            publishedAt: `${date.getDate()} ${month[date.getMonth()]} ${date.getFullYear()}`
+            publishedAt: `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`
         })
         .then(() => {
-            console.log('data introdusa');
-    })
-    .catch((err) => {
-        console.error(err);
-    })
-
+            //console.log('Data adaugata cu succes');
+            location.href = `/${docName}`;
+        })
+        .catch((err) => {
+            console.error('Eroare la adaugarea documentului:', err);
+        });
+    } else {
+        alert("Te rog completeaza toate campurile inainte de a publica.");
     }
-})
+});
