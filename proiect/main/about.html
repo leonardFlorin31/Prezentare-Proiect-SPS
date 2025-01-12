@@ -1,26 +1,82 @@
 <html>
-  <head>
-    <title>Simple Map</title>
+<head>
+    <title>About Us - Fitness Blog</title>
 
     <link rel="stylesheet" type="text/css" href="css/about.css" />
     <script type="module" src="js/about.js"></script>
-  </head>
-  <body>
+</head>
+<body>
+    <!-- Navigation Bar -->
     <nav class="navbar">
-        <img src="images/img1.png" class="logo" alt="">
+        <img src="images/img1.png" class="logo" alt="Fitness Blog Logo">
         <ul class="links-container">
-            <li class="link-item"><a href="/" class="link">home</a></li>
-            <li class="link-item"><a href="/editor" class="link">editor</a></li>
-            <li class="link-item"><a href="/about" class="link">about</a></li>
+            <li class="link-item"><a href="/" class="link">Home</a></li>
+            <li class="link-item"><a href="/editor" class="link">Editor</a></li>
+            <li class="link-item"><a href="/about" class="link">About</a></li>
         </ul>
     </nav>
 
-    <div id="map"></div>
+    <!-- About Section -->
+    <header class="about-header">
+        <h1>Welcome to Our Fitness Blog!</h1>
+        <p>Your go-to destination for fitness tips, healthy living, and achieving your wellness goals.</p>
+    </header>
 
-    <!-- prettier-ignore -->
-    <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
-        ({key: "AIzaSyBdPia9UQvDdua4ILuMXOxByxnyLEqE0Eg", v: "weekly"});</script>
-    
-    
-   </body>
+    <!-- Our Mission -->
+    <section class="mission-section">
+        <h2>Our Mission</h2>
+        <p>We aim to inspire and empower individuals to lead healthier lives by providing expert advice, motivational stories, and science-backed resources on fitness and wellness.</p>
+    </section>
+
+    <!-- Meet the Team -->
+    <section class="team-section">
+        <h2>Meet Our Team</h2>
+        <div class="team-members">
+            <div class="team-member">
+                <img src="images/img1.png" alt="Trainer 1">
+                <h3>Alex Popescu</h3>
+                <p>Fitness Trainer</p>
+            </div>
+            <div class="team-member">
+                <img src="images/img2.jpg" alt="Nutritionist">
+                <h3>Angelina Jolie</h3>
+                <p>Nutrition Expert</p>
+            </div>
+            <div class="team-member">
+                <img src="images/img3.png" alt="Yoga Instructor">
+                <h3>Nimeni</h3>
+                <p>Yoga Coach</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us -->
+    <section class="contact-section">
+        <h2>Contact Us</h2>
+        <form class="contact-form" action="/submit-contact" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+
+            <button type="submit" class="submit-button">Send Message</button>
+        </form>
+    </section>
+
+     <!-- Google Map -->
+     <div id="map" class="map-container"></div>
+
+     <!-- prettier-ignore -->
+     <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+         ({key: "AIzaSyBdPia9UQvDdua4ILuMXOxByxnyLEqE0Eg", v: "weekly"});</script>
+
+    <footer class="footer">
+        <p>&copy; 2025 Fitness Blog. All rights reserved.</p>
+    </footer>
+
+</body>
 </html>
