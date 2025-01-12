@@ -19,6 +19,10 @@ app.get('/editor', (req, res) => {
     res.sendFile(path.join(initial_path, "editor.html"));
 })
 
+app.get('/about', (req, res) => {
+    res.sendFile(path.join(initial_path, "about.html"));
+})
+
 //route pentru upload
 app.post('/upload', (req,res)=>{
     let file = req.files.image;
