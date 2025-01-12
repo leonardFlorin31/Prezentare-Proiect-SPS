@@ -1,21 +1,24 @@
-import { auth } from './firebase.js'; // Use the auth object you exported
-import {firebaseui} from "https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"; // Import Firebase UI
+import * as firebase from 'https://www.gstatic.com/firebasejs/11.1.0/firebase-app-compat.js';
+import 'https://www.gstatic.com/firebasejs/11.1.0/firebase-auth-compat.js';
+import 'https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore-compat.js';
 
-var firebaseui = require('firebaseui');
+import * as firebaseui from "https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js";
 
-let ui = firebaseui.auth.AuthUI(auth); // Initialize AuthUI with the Firebase Auth instance
+
+
+let ui = new firebase.auth.AuthUI(auth);
 let login = document.querySelector('.login');
 
 const setupLoginButton = () => {
     ui.start("#loginUI", {
-        callbacks: {
-            signInSuccessWithAuthResult: function(authResult, redirectURL) {
+        callbacks:{
+            signInSuccesWithAuthResult: function(authResult, redirectURL) {
                 console.log(authResult);
-                return false; // Prevent redirects after sign in
+                return false;
             }
-        },
-        signInFlow: "popup", // Use a popup for the sign-in flow
-        signInOptions: [firebaseui.auth.GoogleAuthProvider.PROVIDER_ID] // Google sign-in
+        }, 
+        signInFlow: "popup",
+        signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID]
     });
 }
 

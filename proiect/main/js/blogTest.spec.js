@@ -16,7 +16,7 @@ test.describe('Blog Page Tests', () => {
       const overview = await blogCard.$eval('.blog-overview', el => el.textContent);
       const image = await blogCard.$eval('.blog-image', el => el.getAttribute('src'));
 
-      // verifica dacă titlul, overview și imaginea sunt afisate corect
+      // verifica dacă titlul, overview și imaginea sunt afisate
       expect(title).not.toBe('');
       expect(overview).not.toBe('');
       expect(image).not.toBe('');
