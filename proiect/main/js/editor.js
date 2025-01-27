@@ -11,7 +11,7 @@ let bannerPath;
 const publishButton = document.querySelector('.button.dark.publish');
 const uploadInput = document.querySelector('#image-upload');
 
-// Eveniment pentru încarcarea imaginii banner
+// Eveniment pentru încarcarea imaginii/banner
 bannerImage.addEventListener('change', () =>{
     uploadImage(bannerImage, "banner");
 })

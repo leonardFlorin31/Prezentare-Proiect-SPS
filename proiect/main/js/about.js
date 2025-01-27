@@ -11,10 +11,10 @@ async function initMap() {
 
 initMap();
 
-// Temporary storage for submitted messages
+// storage temporar pentru mesaje
 const messages = [];
 
-// Wait for the DOM to load
+// incarcare DOM
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector(".contact-form");
     const messageContainer = document.createElement("div");

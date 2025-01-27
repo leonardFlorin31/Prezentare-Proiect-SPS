@@ -1,7 +1,7 @@
 import { db } from './firebase.js';
 import { collection, doc, getDocs } from 'https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js';
-
-
+import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js';
+ 
 const blogSection = document.querySelector('.blogs-section');
 
 // Creează o referință la colecția "blogs"
